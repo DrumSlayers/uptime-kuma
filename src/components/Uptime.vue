@@ -33,7 +33,10 @@ export default {
             let key = this.monitor.id + "_" + this.type;
 
             if (this.$root.uptimeList[key] !== undefined) {
-                let result = Math.round(this.$root.uptimeList[key] * 10000) / 100;
+                let precision = this.$root.info.uptimePrecision !== undefined ? parseInt(this.$root.info.uptimePrecision) : 2;
+                precision = Math.min(4, Math.max(1, Number.isNaN(precision) ? 2 : precision));
+                let multiplier = Math.pow(10, precision + 2); // precision decimals + 2 for percentage
+                let result = Math.round(this.$root.uptimeList[key] * multiplier) / Math.pow(10, precision);
                 // Only perform sanity check on status page. See louislam/uptime-kuma#2628
                 if (this.$route.path.startsWith("/status") && result > 100) {
                     return "100%";

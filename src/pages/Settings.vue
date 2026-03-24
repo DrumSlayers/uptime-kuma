@@ -188,6 +188,10 @@ export default {
                     this.settings.trustProxy = false;
                 }
 
+                if (this.settings.uptimePrecision === undefined) {
+                    this.settings.uptimePrecision = 2;
+                }
+
                 this.settingsLoaded = true;
             });
         },

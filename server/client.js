@@ -145,6 +145,7 @@ async function sendAPIKeyList(socket) {
 async function sendInfo(socket, hideVersion = false) {
     const info = {
         primaryBaseURL: await setting("primaryBaseURL"),
+        uptimePrecision: await setting("uptimePrecision") || 2,
         serverTimezone: await server.getTimezone(),
         serverTimezoneOffset: server.getTimezoneOffset(),
     };

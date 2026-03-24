@@ -122,6 +122,22 @@
                 <div class="form-text"></div>
             </div>
 
+            <!-- Uptime Precision -->
+            <div class="mb-4">
+                <label class="form-label" for="uptimePrecision">
+                    {{ $t("Uptime Precision") }}
+                </label>
+                <select id="uptimePrecision" v-model="settings.uptimePrecision" class="form-select">
+                    <option :value="1">1</option>
+                    <option :value="2">2</option>
+                    <option :value="3">3</option>
+                    <option :value="4">4</option>
+                </select>
+                <div class="form-text">
+                    {{ $t("uptimePrecisionDescription") }}
+                </div>
+            </div>
+
             <!-- Steam API Key -->
             <div class="mb-4">
                 <label class="form-label" for="steamAPIKey">
